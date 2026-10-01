@@ -9,7 +9,7 @@
     {
       "name": "streamline-icons",
       "source": "./plugins/streamline-icons",
-      "description": "Search, recommend and download Streamline icons, illustrations and design elements with the Streamline MCP server."
+      "description": "Insert PNG and SVG icons, illustrations, elements and emojis from Streamline, plus open-source sets like Lucide, Heroicons, Phosphor and Font Awesome."
     }
   ]
 }
