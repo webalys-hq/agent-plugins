@@ -12,13 +12,13 @@ Plugins that bring [Streamline](https://home.streamlinehq.com) icons, illustrati
 
 ```bash
 /plugin marketplace add webalys-hq/agent-plugins
-/plugin install streamline-icons@streamlinehq
+/plugin install streamline-icons@streamline-icons
 ```
 
 If you added this marketplace before, refresh it first:
 
 ```bash
-/plugin marketplace update streamlinehq
+/plugin marketplace update streamline-icons
 ```
 
 The first time you use a Streamline tool, sign in with your Streamline account when prompted.
