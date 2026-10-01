@@ -7,8 +7,8 @@
   "description": "Streamline plugins for AI agents: search, recommend and download icons, illustrations and design elements.",
   "plugins": [
     {
-      "name": "streamline",
-      "source": "./plugins/streamline",
+      "name": "streamline-icons",
+      "source": "./plugins/streamline-icons",
       "description": "Search, recommend and download Streamline icons, illustrations and design elements with the Streamline MCP server."
     }
   ]
