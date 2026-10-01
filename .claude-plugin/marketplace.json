@@ -1,0 +1,15 @@
+{
+  "name": "streamline",
+  "owner": {
+    "name": "Streamline",
+    "url": "https://home.streamlinehq.com"
+  },
+  "description": "Streamline plugins for AI agents: search, recommend and download icons, illustrations and design elements.",
+  "plugins": [
+    {
+      "name": "streamline",
+      "source": "./plugins/streamline",
+      "description": "Search, recommend and download Streamline icons, illustrations and design elements with the Streamline MCP server."
+    }
+  ]
+}
