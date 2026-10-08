@@ -11,6 +11,7 @@
   "repository": "https://github.com/webalys-hq/agent-plugins",
   "license": "Apache-2.0",
   "privacyPolicyUrl": "https://help.streamlinehq.com/en/articles/5356474-privacy-policy",
+  "documentationUrl": "https://docs.streamlinehq.com/reference/mcp",
   "keywords": [
     "streamline",
     "icons",
