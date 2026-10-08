@@ -23,15 +23,23 @@ If you added this marketplace before, refresh it first:
 
 The first time you use a Streamline tool, sign in with your Streamline account when prompted.
 
+## Install in Cursor
+
+Install **Streamline Icons** from the [Cursor Marketplace](https://cursor.com/marketplace), then sign in with your Streamline account when Cursor connects to the Streamline MCP server.
+
 ## Repository structure
 
 ```text
 agent-plugins/
 ├── .claude-plugin/marketplace.json     # Claude marketplace catalog
+├── .cursor-plugin/marketplace.json     # Cursor marketplace catalog
 └── plugins/
     └── streamline-icons/
         ├── .claude-plugin/plugin.json  # Claude plugin manifest
-        ├── .mcp.json                   # Streamline MCP server
+        ├── .cursor-plugin/plugin.json  # Cursor plugin manifest
+        ├── .mcp.json                   # Streamline MCP server (Claude)
+        ├── mcp.json                    # Streamline MCP server (Cursor)
+        ├── assets/logo.png             # Cursor marketplace logo
         ├── README.md
         ├── LICENSE
         └── skills/
