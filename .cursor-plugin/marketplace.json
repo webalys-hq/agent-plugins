@@ -1,0 +1,16 @@
+{
+  "name": "streamline-icons",
+  "owner": {
+    "name": "Streamline"
+  },
+  "metadata": {
+    "description": "Streamline plugins for AI agents: search, recommend and download icons, illustrations and design elements."
+  },
+  "plugins": [
+    {
+      "name": "streamline-icons",
+      "source": "./plugins/streamline-icons",
+      "description": "Insert PNG and SVG icons, illustrations, elements and emojis from Streamline, plus open-source sets like Lucide, Heroicons, Phosphor and Font Awesome."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Streamline Icons
 
-Search, recommend and download [Streamline](https://home.streamlinehq.com) icons, illustrations and design elements from Claude. Streamline makes some of the largest icon and illustration sets available: over 100,000 icons and 21,000 elements, in SVG and PNG. It also hosts popular open-source libraries such as Lucide, Heroicons, Phosphor, Font Awesome, Tabler and Material Symbols.
+Search, recommend and download [Streamline](https://home.streamlinehq.com) icons, illustrations and design elements from Claude and Cursor. Streamline makes some of the largest icon and illustration sets available: over 100,000 icons and 21,000 elements, in SVG and PNG. It also hosts popular open-source libraries such as Lucide, Heroicons, Phosphor, Font Awesome, Tabler and Material Symbols.
 
 ## What's included
 
@@ -9,7 +9,7 @@ Search, recommend and download [Streamline](https://home.streamlinehq.com) icons
 
 ## Setup
 
-When you first use a Streamline tool, Claude asks you to sign in with your Streamline account through OAuth. A free account can search and download free assets. Downloading premium assets needs a paid plan. No API key or local configuration is needed.
+When you first use a Streamline tool, Claude or Cursor asks you to sign in with your Streamline account through OAuth. A free account can search and download free assets. Downloading premium assets needs a paid plan. No API key or local configuration is needed.
 
 ## Data and privacy
 
