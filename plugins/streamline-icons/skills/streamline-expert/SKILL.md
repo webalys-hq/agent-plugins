@@ -516,6 +516,8 @@ Rules:
    - a Set → use `setSlug`
    - a Family → use `familySlug`
 
+   If the user names specific assets ("House 3, Layout Corners Dashboard 1, Hyperloop"), resolve them all in ONE call: pass the names comma-separated in `query` with `exactNames: true` and the `setSlug` or `familySlug` they belong to (resolve it first if needed), and set `limit` to cover every match. Fall back to a normal `query` search only for names that returned nothing.
+
 3. If no matches are found:
 
    - briefly say no matching Streamline assets were found
