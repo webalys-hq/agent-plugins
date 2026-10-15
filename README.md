@@ -34,10 +34,10 @@ The plugin is packaged for OpenAI with the portable [Agent Plugins](https://deve
 To build the archive for **Plugins → + → Upload plugin** in ChatGPT, zip the plugin folder so it is the archive's only top-level folder:
 
 ```bash
-cd plugins && rm -f streamline-icons.zip && zip -qr streamline-icons.zip streamline-icons -x '*.DS_Store'
+cd plugins && rm -f streamline-icons.zip && zip -qr streamline-icons.zip streamline-icons -x '*.DS_Store' 'streamline-icons/.mcp.json' 'streamline-icons/.claude-plugin/*' 'streamline-icons/.cursor-plugin/*'
 ```
 
-The `rm` matters: `zip` adds to an existing archive, so without it files you deleted from the plugin stay in the zip.
+The `rm` matters: `zip` adds to an existing archive, so without it files you deleted from the plugin stay in the zip. The Claude and Cursor files are left out because OpenAI reads `.mcp.json` as an MCP connection too.
 
 The OpenAI dashboard rejects the upload unless:
 
