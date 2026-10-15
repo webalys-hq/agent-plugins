@@ -54,7 +54,7 @@ agent-plugins/
         ├── mcp.json                    # Streamline MCP server (OpenAI)
         ├── .mcp.json                   # Streamline MCP server (Claude)
         ├── assets/icon.png             # ChatGPT composer icon
-        ├── assets/logo.png             # Cursor marketplace logo
+        ├── assets/logo.png             # Cursor and ChatGPT listing logo
         ├── README.md
         ├── LICENSE
         └── skills/

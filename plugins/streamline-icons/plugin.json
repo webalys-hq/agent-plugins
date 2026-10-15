@@ -23,15 +23,17 @@
     "com.openai": {
       "interface": {
         "displayName": "Streamline Icons",
-        "shortDescription": "Search and download icons and illustrations",
+        "shortDescription": "Find icons and illustrations",
         "longDescription": "Search the Streamline library of icons, illustrations and emojis, and download the ones you pick as SVG or PNG.\n\nDescribe what you need in plain language, such as a concept, a UI element or a visual style, and Streamline returns matching assets to preview and download.\n\nYou can also ask which icon family suits your product, browse the sets inside a family, and get advice on picking clear, consistent icon metaphors for your interface or design system.",
         "developerName": "Streamline Design Inc",
         "category": "Creativity",
         "websiteURL": "https://home.streamlinehq.com",
+        "supportURL": "https://help.streamlinehq.com/en/",
         "privacyPolicyURL": "https://help.streamlinehq.com/en/articles/5356474-privacy-policy",
         "termsOfServiceURL": "https://help.streamlinehq.com/en/articles/11094721-streamline-api-terms-of-use",
         "brandColor": "#538103",
         "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png",
         "defaultPrompt": [
           "Which icon sets pair well with Inter font?",
           "Find me a line-style icon for notifications",
