@@ -41,13 +41,15 @@ The `rm` matters: `zip` adds to an existing archive, so without it files you del
 
 The OpenAI dashboard rejects the upload unless:
 
-- `name` in `plugin.json` is the existing plugin's ID (`app-6a5a218d074081919ce8fa4e3fb1e48c`), not `streamline-icons`.
+- `name` in `plugin.json` matches the plugin you are updating (`streamline-icons`).
 - `shortDescription` (the subtitle) is 30 characters or fewer.
-- `version` in `plugin.json` differs from the published one. Bump it for every upload.
+- `version` in `plugin.json` differs from the last uploaded one. Bump it for every update.
 - `supportURL` and `logo` are set.
-- The root `mcp.json` declares the existing MCP server. Removing it isn't supported.
+- The root `mcp.json` declares the Streamline MCP server. Removing it from an existing plugin isn't supported.
 
 Skills are copied into the archive at upload, so re-zip and re-upload after changing them.
+
+Only one plugin can connect to the Streamline MCP server, and the server's domain-verification token (`/.well-known/openai-apps-challenge`) comes from the `NX_BACKEND_OPENAI_APPS_CHALLENGE_VERIFICATION_CODE` env var in `streamline-api-nestjs`. A new plugin needs its token set there and the public API redeployed.
 
 ## Repository structure
 
