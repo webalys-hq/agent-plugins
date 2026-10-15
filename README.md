@@ -29,7 +29,7 @@ Install **Streamline Icons** from the [Cursor Marketplace](https://cursor.com/ma
 
 ## ChatGPT and Codex
 
-The plugin is packaged for OpenAI with the portable [Agent Plugins](https://developers.openai.com/plugins/build/plugins) layout: `plugin.json` at the plugin root, with the ChatGPT listing copy under `extensions["com.openai"]`. Keep that copy in line with the [plugin guidelines](https://developers.openai.com/plugins/plugin-guidelines): no superlatives, comparisons, testimonials or pricing. The MCP server connection is set up in the OpenAI dashboard, not in the package.
+The plugin is packaged for OpenAI with the portable [Agent Plugins](https://developers.openai.com/plugins/build/plugins) layout: `plugin.json` at the plugin root, with the ChatGPT listing copy under `extensions["com.openai"]`. Keep that copy in line with the [plugin guidelines](https://developers.openai.com/plugins/plugin-guidelines): no superlatives, comparisons, testimonials or pricing. `mcp.json` at the plugin root declares the Streamline MCP server for OpenAI.
 
 To build the archive for **Plugins → + → Upload plugin** in ChatGPT, zip the plugin folder so it is the archive's only top-level folder:
 
@@ -45,7 +45,7 @@ The OpenAI dashboard rejects the upload unless:
 - `shortDescription` (the subtitle) is 30 characters or fewer.
 - `version` in `plugin.json` differs from the published one. Bump it for every upload.
 - `supportURL` and `logo` are set.
-- The plugin has no root `mcp.json`. The dashboard keeps the existing MCP connection and rejects a package that declares one.
+- The root `mcp.json` declares the existing MCP server. Removing it isn't supported.
 
 Skills are copied into the archive at upload, so re-zip and re-upload after changing them.
 
@@ -61,6 +61,7 @@ agent-plugins/
         ├── .cursor-plugin/plugin.json  # Cursor plugin manifest
         ├── .cursor-plugin/mcp.json     # Streamline MCP server (Cursor)
         ├── plugin.json                 # OpenAI (ChatGPT and Codex) plugin manifest
+        ├── mcp.json                    # Streamline MCP server (OpenAI)
         ├── .mcp.json                   # Streamline MCP server (Claude)
         ├── assets/icon.png             # ChatGPT composer icon
         ├── assets/logo.png             # Cursor and ChatGPT listing logo
