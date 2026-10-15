@@ -39,6 +39,61 @@
           "Find me a line-style icon for notifications",
           "Search for illustrations related to teamwork"
         ]
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Recommend an icon family for a typeface",
+              "prompt": "Which icon sets pair well with Inter font?",
+              "tools_triggered": "search_families, get_all_sets_from_family",
+              "expected_behavior": "Recommends one Streamline icon family that suits Inter, such as Core, explains the fit in terms of stroke, geometry and neutrality, and shows that family's sets with their preview images."
+            },
+            {
+              "description": "Find an icon for a UI concept",
+              "prompt": "Find me a line-style icon for notifications",
+              "tools_triggered": "get_user_context, search_assets",
+              "expected_behavior": "Returns a few line-style bell or notification icons with preview images and the set each one belongs to."
+            },
+            {
+              "description": "Find illustrations on a topic",
+              "prompt": "Search for illustrations related to teamwork",
+              "tools_triggered": "get_user_context, search_assets",
+              "expected_behavior": "Returns teamwork illustrations, such as Team Work from the London set, with preview images and set names."
+            },
+            {
+              "description": "Download an icon as SVG",
+              "prompt": "Download a ringing bell notification icon from Core Line Free as a 24px SVG",
+              "tools_triggered": "get_user_context, search_assets, download_asset",
+              "expected_behavior": "Finds the Ringing Bell Notification icon in the Core Line Free set and returns a short-lived download link to the SVG file."
+            },
+            {
+              "description": "Find a consistent group of icons",
+              "prompt": "I need icons for save, edit, delete and share in my app toolbar. Find them in one consistent style.",
+              "tools_triggered": "get_user_context, search_assets",
+              "expected_behavior": "Returns one icon for each of the four actions, all from the same icon family, with preview images."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Image generation is out of scope",
+              "prompt": "Generate a photorealistic image of a cat sitting on a sofa."
+            },
+            {
+              "description": "Unrelated general question",
+              "prompt": "What's the weather in Paris tomorrow?"
+            },
+            {
+              "description": "Account management isn't supported",
+              "prompt": "Cancel my Streamline subscription and delete my account."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "This plugin does not sell products or process payments."
+      },
+      "publication": {
+        "release_notes": "Initial release: search Streamline icons, illustrations and emojis, get icon family recommendations, and download assets as SVG or PNG."
       }
     }
   }
