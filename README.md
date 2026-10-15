@@ -29,7 +29,7 @@ Install **Streamline Icons** from the [Cursor Marketplace](https://cursor.com/ma
 
 ## ChatGPT and Codex
 
-The plugin is packaged for OpenAI with the portable [Agent Plugins](https://developers.openai.com/plugins/build/plugins) layout: `plugin.json` and `mcp.json` at the plugin root, with the ChatGPT listing copy under `extensions["com.openai"]` in `plugin.json`. Keep that copy in line with the [plugin guidelines](https://developers.openai.com/plugins/plugin-guidelines): no superlatives, comparisons, testimonials or pricing.
+The plugin is packaged for OpenAI with the portable [Agent Plugins](https://developers.openai.com/plugins/build/plugins) layout: `plugin.json` at the plugin root, with the ChatGPT listing copy under `extensions["com.openai"]`. Keep that copy in line with the [plugin guidelines](https://developers.openai.com/plugins/plugin-guidelines): no superlatives, comparisons, testimonials or pricing. The MCP server connection is set up in the OpenAI dashboard, not in the package.
 
 To build the archive for **Plugins → + → Upload plugin** in ChatGPT, zip the plugin folder so it is the archive's only top-level folder:
 
@@ -43,9 +43,11 @@ The OpenAI dashboard rejects the upload unless:
 
 - `name` in `plugin.json` is the existing plugin's ID (`app-6a5a218d074081919ce8fa4e3fb1e48c`), not `streamline-icons`.
 - `shortDescription` (the subtitle) is 30 characters or fewer.
+- `version` in `plugin.json` differs from the published one. Bump it for every upload.
 - `supportURL` and `logo` are set.
+- The plugin has no root `mcp.json`. The dashboard keeps the existing MCP connection and rejects a package that declares one.
 
-To test against a local MCP server, point `url` in `plugins/streamline-icons/mcp.json` at your tunnel before zipping, and don't commit that change. Skills are copied into the archive at upload, so re-zip and re-upload after changing them.
+Skills are copied into the archive at upload, so re-zip and re-upload after changing them.
 
 ## Repository structure
 
@@ -59,7 +61,6 @@ agent-plugins/
         ├── .cursor-plugin/plugin.json  # Cursor plugin manifest
         ├── .cursor-plugin/mcp.json     # Streamline MCP server (Cursor)
         ├── plugin.json                 # OpenAI (ChatGPT and Codex) plugin manifest
-        ├── mcp.json                    # Streamline MCP server (OpenAI)
         ├── .mcp.json                   # Streamline MCP server (Claude)
         ├── assets/icon.png             # ChatGPT composer icon
         ├── assets/logo.png             # Cursor and ChatGPT listing logo
