@@ -34,8 +34,16 @@ The plugin is packaged for OpenAI with the portable [Agent Plugins](https://deve
 To build the archive for **Plugins → + → Upload plugin** in ChatGPT, zip the plugin folder so it is the archive's only top-level folder:
 
 ```bash
-cd plugins && zip -qr streamline-icons.zip streamline-icons -x '*.DS_Store'
+cd plugins && rm -f streamline-icons.zip && zip -qr streamline-icons.zip streamline-icons -x '*.DS_Store'
 ```
+
+The `rm` matters: `zip` adds to an existing archive, so without it files you deleted from the plugin stay in the zip.
+
+The OpenAI dashboard rejects the upload unless:
+
+- `name` in `plugin.json` is the existing plugin's ID (`app-6a5a218d074081919ce8fa4e3fb1e48c`), not `streamline-icons`.
+- `shortDescription` (the subtitle) is 30 characters or fewer.
+- `supportURL` and `logo` are set.
 
 To test against a local MCP server, point `url` in `plugins/streamline-icons/mcp.json` at your tunnel before zipping, and don't commit that change. Skills are copied into the archive at upload, so re-zip and re-upload after changing them.
 
