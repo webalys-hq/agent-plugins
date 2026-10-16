@@ -27,6 +27,30 @@ The first time you use a Streamline tool, sign in with your Streamline account w
 
 Install **Streamline Icons** from the [Cursor Marketplace](https://cursor.com/marketplace), then sign in with your Streamline account when Cursor connects to the Streamline MCP server.
 
+## ChatGPT and Codex
+
+The plugin is packaged for OpenAI with the portable [Agent Plugins](https://developers.openai.com/plugins/build/plugins) layout: `plugin.json` at the plugin root, with the ChatGPT listing copy under `extensions["com.openai"]`. Keep that copy in line with the [plugin guidelines](https://developers.openai.com/plugins/plugin-guidelines): no superlatives, comparisons, testimonials or pricing. `mcp.json` at the plugin root declares the Streamline MCP server for OpenAI.
+
+To build the archive for **Plugins → + → Upload plugin** in ChatGPT, zip the plugin folder so it is the archive's only top-level folder:
+
+```bash
+cd plugins && rm -f streamline-icons.zip && zip -qr streamline-icons.zip streamline-icons -x '*.DS_Store' 'streamline-icons/.mcp.json' 'streamline-icons/.claude-plugin/*' 'streamline-icons/.cursor-plugin/*'
+```
+
+The `rm` matters: `zip` adds to an existing archive, so without it files you deleted from the plugin stay in the zip. The Claude and Cursor files are left out because OpenAI reads `.mcp.json` as an MCP connection too.
+
+The OpenAI dashboard rejects the upload unless:
+
+- `name` in `plugin.json` matches the plugin you are updating (`streamline-icons`).
+- `shortDescription` (the subtitle) is 30 characters or fewer.
+- `version` in `plugin.json` differs from the last uploaded one. Bump it for every update.
+- `supportURL` and `logo` are set.
+- The root `mcp.json` declares the Streamline MCP server. Removing it from an existing plugin isn't supported.
+
+Skills are copied into the archive at upload, so re-zip and re-upload after changing them.
+
+Only one plugin can connect to the Streamline MCP server, and the server's domain-verification token (`/.well-known/openai-apps-challenge`) comes from the `NX_BACKEND_OPENAI_APPS_CHALLENGE_VERIFICATION_CODE` env var in `streamline-api-nestjs`. A new plugin needs its token set there and the public API redeployed.
+
 ## Repository structure
 
 ```text
@@ -37,9 +61,12 @@ agent-plugins/
     └── streamline-icons/
         ├── .claude-plugin/plugin.json  # Claude plugin manifest
         ├── .cursor-plugin/plugin.json  # Cursor plugin manifest
+        ├── .cursor-plugin/mcp.json     # Streamline MCP server (Cursor)
+        ├── plugin.json                 # OpenAI (ChatGPT and Codex) plugin manifest
+        ├── mcp.json                    # Streamline MCP server (OpenAI)
         ├── .mcp.json                   # Streamline MCP server (Claude)
-        ├── mcp.json                    # Streamline MCP server (Cursor)
-        ├── assets/logo.png             # Cursor marketplace logo
+        ├── assets/icon.png             # ChatGPT composer icon
+        ├── assets/logo.png             # Cursor and ChatGPT listing logo
         ├── README.md
         ├── LICENSE
         └── skills/
