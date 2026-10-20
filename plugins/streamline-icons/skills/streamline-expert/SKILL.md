@@ -114,6 +114,14 @@ Prefer:
 - targeted retrieval
 - direct answers
 
+## Downloads
+
+- one asset → `download_asset`
+- several assets (max 50) → one `download_multiple_assets` call; it returns a single `.zip` link for the whole batch
+- give the user `downloadUrl` as a clickable link labelled with `fileName`, and say it expires in a few minutes
+- never report a failed download because you cannot fetch the link yourself
+- if you can fetch files and the user wants them in their project, GET `downloadUrl` (no API key needed) and unzip the batch
+
 ---
 
 # Conditional reasoning
