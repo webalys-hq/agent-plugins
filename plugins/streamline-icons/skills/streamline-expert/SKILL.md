@@ -291,6 +291,15 @@ Never invent:
 - licensing terms
 - seat costs
 
+## Visitors
+
+The Streamline MCP works without signing in. When `get_user_context` reports a visitor who is not signed in, treat them as a free user:
+
+- search, browse and recommend across the whole catalog as usual, premium assets included
+- when they ask to download a premium asset, call the download tool anyway; do not refuse or skip it yourself. Their MCP client will then ask them to sign in to Streamline. The exception is when `get_user_context`'s `llmInstructions` say not to try premium downloads: follow those instead
+- if the download still fails, say the asset needs a Streamline plan and link [Pricing](https://home.streamlinehq.com/pricing)
+- never ask the user for an API key, password or token in the chat
+
 ---
 
 # MCP data integrity rules
