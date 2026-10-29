@@ -31,10 +31,10 @@ Install **Streamline Icons** from the [Cursor Marketplace](https://cursor.com/ma
 
 The plugin is packaged for OpenAI with the portable [Agent Plugins](https://developers.openai.com/plugins/build/plugins) layout: `plugin.json` at the plugin root, with the ChatGPT listing copy under `extensions["com.openai"]`. Keep that copy in line with the [plugin guidelines](https://developers.openai.com/plugins/plugin-guidelines): no superlatives, comparisons, testimonials or pricing. `mcp.json` at the plugin root declares the Streamline MCP server for OpenAI.
 
-To build the archive for **Plugins → + → Upload plugin** in ChatGPT, zip the plugin folder so it is the archive's only top-level folder:
+To build the archive for **Plugins → + → Upload plugin** in ChatGPT, zip the plugin folder's contents so `plugin.json`, `mcp.json`, `skills/` and `assets/` sit at the archive root. The upload fails with "Invalid plugin package" when they are inside a top-level folder.
 
 ```bash
-cd plugins && rm -f streamline-icons.zip && zip -qr streamline-icons.zip streamline-icons -x '*.DS_Store' 'streamline-icons/.mcp.json' 'streamline-icons/.claude-plugin/*' 'streamline-icons/.cursor-plugin/*'
+cd plugins/streamline-icons && rm -f ../streamline-icons.zip && zip -qr ../streamline-icons.zip . -x '*.DS_Store' '.mcp.json' '.claude-plugin/*' '.cursor-plugin/*'
 ```
 
 The `rm` matters: `zip` adds to an existing archive, so without it files you deleted from the plugin stay in the zip. The Claude and Cursor files are left out because OpenAI reads `.mcp.json` as an MCP connection too.
