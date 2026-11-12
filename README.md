@@ -73,7 +73,7 @@ agent-plugins/
             └── streamline-expert/
                 ├── SKILL.md
                 ├── agents/openai.yaml  # ChatGPT/Codex skill chip: name, icon, default prompt
-                └── assets/             # Skill icons referenced by agents/openai.yaml
+                └── assets/             # Skill icons (PNG only: the Claude directory refuses SVG)
 ```
 
 ## License
