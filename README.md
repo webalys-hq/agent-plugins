@@ -71,6 +71,9 @@ agent-plugins/
         ├── LICENSE
         └── skills/
             └── streamline-expert/
+                ├── SKILL.md
+                ├── agents/openai.yaml  # ChatGPT/Codex skill chip: name, icon, default prompt
+                └── assets/             # Skill icons referenced by agents/openai.yaml
 ```
 
 ## License
