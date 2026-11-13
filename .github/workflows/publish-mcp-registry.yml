@@ -1,0 +1,30 @@
+# Taken from https://modelcontextprotocol.io/registry/github-actions
+name: Publish to MCP Registry
+
+on:
+  push:
+    tags:
+      - "mcp-v*" # e.g. mcp-v2.0.1, kept apart from plugin release tags
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Install mcp-publisher
+        run: |
+          curl -L "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/').tar.gz" | tar xz mcp-publisher
+
+      # `mcp-publisher login github-oidc` only grants the io.github.webalys-hq/* namespace,
+      # so publishing com.streamlinehq/mcp needs DNS authentication on streamlinehq.com.
+      # https://modelcontextprotocol.io/registry/authentication#dns-authentication
+      - name: Authenticate to MCP Registry
+        run: ./mcp-publisher login dns --domain streamlinehq.com --private-key ${{ secrets.MCP_DNS_PRIVATE_KEY }}
+
+      - name: Publish to MCP Registry
+        run: ./mcp-publisher publish mcp-registry/server.json
