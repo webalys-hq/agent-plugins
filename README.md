@@ -21,11 +21,11 @@ If you added this marketplace before, refresh it first:
 /plugin marketplace update streamline-icons
 ```
 
-The first time you use a Streamline tool, sign in with your Streamline account when prompted.
+The Streamline tools work without an account for searching and free assets. Sign in with your Streamline account when prompted to download premium assets.
 
 ## Install in Cursor
 
-Install **Streamline Icons** from the [Cursor Marketplace](https://cursor.com/marketplace), then sign in with your Streamline account when Cursor connects to the Streamline MCP server.
+Install **Streamline Icons** from the [Cursor Marketplace](https://cursor.com/marketplace). It works without an account; sign in with your Streamline account when Cursor asks, to download premium assets.
 
 ## ChatGPT and Codex
 
@@ -51,12 +51,25 @@ Skills are copied into the archive at upload, so re-zip and re-upload after chan
 
 Only one plugin can connect to the Streamline MCP server, and the server's domain-verification token (`/.well-known/openai-apps-challenge`) comes from the `NX_BACKEND_OPENAI_APPS_CHALLENGE_VERIFICATION_CODE` env var in `streamline-api-nestjs`. A new plugin needs its token set there and the public API redeployed.
 
+## MCP Registry listing
+
+[`mcp-registry/server.json`](mcp-registry/server.json) is the Streamline MCP server's entry in the [official MCP Registry](https://registry.modelcontextprotocol.io), published as `com.streamlinehq/mcp`. It used to live in `webalys-hq/streamline-mcp`.
+
+To publish a change:
+
+1. Bump `version` in `server.json`. The registry rejects a version it already has.
+2. Push a tag named `mcp-v<version>`, for example `mcp-v2.0.1`. The [Publish to MCP Registry](.github/workflows/publish-mcp-registry.yml) workflow publishes it.
+
+The workflow signs in to the registry with DNS authentication on `streamlinehq.com`, using the `MCP_DNS_PRIVATE_KEY` repository secret. GitHub sign-in only grants the `io.github.webalys-hq/*` namespace, so it can't publish `com.streamlinehq/mcp`. See [DNS authentication](https://modelcontextprotocol.io/registry/authentication#dns-authentication) to generate a new key.
+
 ## Repository structure
 
 ```text
 agent-plugins/
 ├── .claude-plugin/marketplace.json     # Claude marketplace catalog
 ├── .cursor-plugin/marketplace.json     # Cursor marketplace catalog
+├── .github/workflows/publish-mcp-registry.yml  # Publishes mcp-registry/server.json
+├── mcp-registry/server.json            # Official MCP Registry entry
 └── plugins/
     └── streamline-icons/
         ├── .claude-plugin/plugin.json  # Claude plugin manifest

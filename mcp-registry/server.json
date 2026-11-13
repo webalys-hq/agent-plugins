@@ -1,0 +1,25 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+  "name": "com.streamlinehq/mcp",
+  "title": "Streamline MCP Server",
+  "description": "Search and download icons, illustrations, elements and emojis in PNG or SVG formats.",
+  "repository": {
+    "url": "https://github.com/webalys-hq/agent-plugins",
+    "source": "github"
+  },
+  "version": "2.0.1",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://public-api.streamlinehq.com/mcp",
+      "headers": [
+        {
+          "name": "X-API-Key",
+          "description": "Optional. Without it or an OAuth sign-in, the server searches and downloads free assets only",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
