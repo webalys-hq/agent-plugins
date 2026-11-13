@@ -1,13 +1,13 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
   "name": "com.streamlinehq/mcp",
-  "title": "Streamline MCP Server",
+  "title": "Streamline Icons",
   "description": "Search and download icons, illustrations, elements and emojis in PNG or SVG formats.",
   "repository": {
     "url": "https://github.com/webalys-hq/agent-plugins",
     "source": "github"
   },
-  "version": "2.0.1",
+  "version": "2.0.2",
   "remotes": [
     {
       "type": "streamable-http",
