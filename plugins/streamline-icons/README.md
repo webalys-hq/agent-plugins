@@ -9,15 +9,15 @@ Search, recommend and download [Streamline](https://home.streamlinehq.com) icons
 
 ## Setup
 
-When you first use a Streamline tool, Claude or Cursor asks you to sign in with your Streamline account through OAuth. A free account can search and download free assets. Downloading premium assets needs a paid plan. No API key or local configuration is needed.
+The Streamline tools work without an account: you can search the catalog and download free assets straight away. To download premium assets, sign in with your Streamline account through OAuth when Claude or Cursor asks; they need a paid plan. No API key or local configuration is needed.
 
 ## Data and privacy
 
 The plugin runs no local code. Everything it does goes through the Streamline MCP server over HTTPS:
 
-- **What's sent:** the tool Claude calls and its arguments, such as search queries, family or set names, and the assets you choose to download, together with your OAuth access token.
-- **What's returned:** your account email and plan, catalog results, and short-lived signed download URLs for the assets.
-- **Analytics:** Streamline records each tool call (the tool name, its search query, and the MCP client and model in use) against your account to improve search and recommendations.
+- **What's sent:** the tool Claude calls and its arguments, such as search queries, family or set names, and the assets you choose to download, together with your OAuth access token if you signed in.
+- **What's returned:** your account email and plan if you signed in, catalog results, and short-lived signed download URLs for the assets.
+- **Analytics:** Streamline records each tool call (the tool name, its search query, and the MCP client and model in use), against your account if you signed in, to improve search and recommendations.
 
 See the [Streamline privacy policy](https://help.streamlinehq.com/en/articles/5356474-privacy-policy) and the [Streamline API terms of use](https://help.streamlinehq.com/en/articles/11094721-streamline-api-terms-of-use). Assets you download are licensed under your Streamline plan, not under this repository's license.
 

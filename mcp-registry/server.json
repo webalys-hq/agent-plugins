@@ -15,7 +15,7 @@
       "headers": [
         {
           "name": "X-API-Key",
-          "description": "API key for clients that don't sign in with OAuth",
+          "description": "Optional. Without it or an OAuth sign-in, the server searches and downloads free assets only",
           "isRequired": false,
           "isSecret": true
         }

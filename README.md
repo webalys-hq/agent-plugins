@@ -21,11 +21,11 @@ If you added this marketplace before, refresh it first:
 /plugin marketplace update streamline-icons
 ```
 
-The first time you use a Streamline tool, sign in with your Streamline account when prompted.
+The Streamline tools work without an account for searching and free assets. Sign in with your Streamline account when prompted to download premium assets.
 
 ## Install in Cursor
 
-Install **Streamline Icons** from the [Cursor Marketplace](https://cursor.com/marketplace), then sign in with your Streamline account when Cursor connects to the Streamline MCP server.
+Install **Streamline Icons** from the [Cursor Marketplace](https://cursor.com/marketplace). It works without an account; sign in with your Streamline account when Cursor asks, to download premium assets.
 
 ## ChatGPT and Codex
 
