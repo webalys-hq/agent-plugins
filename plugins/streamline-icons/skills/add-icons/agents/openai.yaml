@@ -1,0 +1,7 @@
+interface:
+  display_name: "add-icons"
+  short_description: "Add Streamline icons to what you build"
+  icon_small: "./assets/streamline-small.png"
+  icon_large: "./assets/streamline.png"
+  brand_color: "#538103"
+  default_prompt: "Use $add-icons to build a pricing page with icons from one Streamline set."

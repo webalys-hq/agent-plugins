@@ -6,7 +6,7 @@ Plugins that bring [Streamline](https://home.streamlinehq.com) icons, illustrati
 
 | Plugin | Description |
 | - | - |
-| [`streamline-icons`](plugins/streamline-icons) | Search, recommend and download Streamline icons, illustrations and design elements. Includes the `streamline-expert` skill. |
+| [`streamline-icons`](plugins/streamline-icons) | Search, recommend and download Streamline icons, illustrations and design elements. Includes the `add-icons` and `iconography-expert` skills. |
 
 ## Install in Claude Code
 
@@ -49,6 +49,10 @@ The OpenAI dashboard rejects the upload unless:
 
 Skills are copied into the archive at upload, so re-zip and re-upload after changing them.
 
+### Skill chips
+
+`agents/openai.yaml` and `assets/` inside each skill give that skill its chip in ChatGPT and Codex: display name, small and large icon, brand colour and starter prompt. They are the one part of `skills/` kept here rather than in streamline-mono, because the MCP server serves skill files as UTF-8 text and would corrupt a PNG. The sync only replaces what its diff covers, so they survive a skill's `SKILL.md` changing; a skill renamed or removed in streamline-mono takes its folder, and these files with it, so add them again for the new skill.
+
 Only one plugin can connect to the Streamline MCP server, and the server's domain-verification token (`/.well-known/openai-apps-challenge`) comes from the `NX_BACKEND_OPENAI_APPS_CHALLENGE_VERIFICATION_CODE` env var in `streamline-api-nestjs`. A new plugin needs its token set there and the public API redeployed.
 
 ## MCP Registry listing
@@ -82,11 +86,16 @@ agent-plugins/
         ├── assets/logo.png             # Cursor and ChatGPT listing logo
         ├── README.md
         ├── LICENSE
-        └── skills/
-            └── streamline-expert/
+        └── skills/              # Synced from streamline-mono; see "Skill chips" below
+            ├── add-icons/
+            │   ├── SKILL.md
+            │   ├── agents/openai.yaml  # ChatGPT/Codex skill chip: name, icon, default prompt
+            │   └── assets/             # Skill icons (PNG only: the Claude directory refuses SVG)
+            └── iconography-expert/
                 ├── SKILL.md
-                ├── agents/openai.yaml  # ChatGPT/Codex skill chip: name, icon, default prompt
-                └── assets/             # Skill icons (PNG only: the Claude directory refuses SVG)
+                ├── references/         # Read by the skill as it answers
+                ├── agents/openai.yaml
+                └── assets/
 ```
 
 ## License
