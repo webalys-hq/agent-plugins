@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "streamline-icons",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Search and download Streamline icons, illustrations and design elements.",
   "author": {
     "name": "Streamline",
@@ -46,8 +46,8 @@
             {
               "description": "Recommend an icon family for a typeface",
               "prompt": "Which icon sets pair well with Inter font?",
-              "tools_triggered": "search_families, get_all_sets_from_family",
-              "expected_behavior": "Recommends one Streamline icon family that suits Inter, such as Core, explains the fit in terms of stroke, geometry and neutrality, and shows that family's sets with their preview images."
+              "tools_triggered": "get_user_context, search_families, show_families_preview",
+              "expected_behavior": "Recommends one Streamline icon family that suits Inter, such as Core, explains the fit in terms of stroke, geometry and neutrality, and shows three families as a preview, each drawn with sample icons, its pick first."
             },
             {
               "description": "Find an icon for a UI concept",
@@ -93,7 +93,7 @@
         "commerce_description": "This plugin does not sell products or process payments."
       },
       "publication": {
-        "release_notes": "New Streamline plugin icon, and a Streamline logo on the streamline-expert skill."
+        "release_notes": "Two skills replace the single Expert skill: add-icons, for putting Streamline icons into a page or app as it is built and for replacing emoji, text symbols or another icon library, and iconography-expert, for icon and style questions. Asking which style fits now shows three recommended families as a preview, each drawn with the icons the product needs."
       }
     }
   }
